@@ -179,17 +179,7 @@ Apify.main(async () => {
             log.info('Sending mail...');
             await Apify.call('apify/send-mail', {
                 to: sendNotificationTo,
-                subject: 'Apify content checker - page changed!',
-                text: `URL: ${url}\n\n${notificationNote}Previous data: ${previousData}\n\nCurrent data: ${content}`,
-                attachments: [
-                    {
-                        filename: 'previousScreenshot.png',
-                        data: previousScreenshot.toString('base64'),
-                    },
-                    {
-                        filename: 'currentScreenshot.png',
-                        data: screenshotBuffer.toString('base64'),
-                    },
+                subject: `Kunskapsprov (uppdaterat): ${content}`,
                 ],
 
             });
